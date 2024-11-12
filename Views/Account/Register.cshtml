@@ -1,0 +1,130 @@
+﻿@model Proyect.ViewModels.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+
+    <!-- Librerías de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px; /* Reducción de padding */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px; /* Reducción del ancho máximo */
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+            .form-container:hover {
+                transform: scale(1.02);
+            }
+
+        .form-title {
+            text-align: center;
+            color: #3b5998;
+            margin-bottom: 20px; /* Reducción del margen */
+            font-weight: bold;
+            font-size: 1.5rem; /* Reducción del tamaño de fuente */
+            background: -webkit-linear-gradient(#3b5998, #8b9dc3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-label {
+            color: #4a4a4a;
+            font-weight: 500;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid #e0f7fa;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: #81d4fa;
+                box-shadow: 0 0 0 0.2rem rgba(129, 212, 250, 0.25);
+            }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #81d4fa, #a7ffeb);
+            border: none;
+            font-weight: bold;
+            padding: 8px 16px; /* Reducción del padding */
+            font-size: 1rem; /* Reducción del tamaño de fuente */
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(90deg, #a7ffeb, #81d4fa);
+            }
+
+            .btn-primary i {
+                margin-right: 8px;
+            }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2 class="form-title">Registro de Usuario</h2>
+        <form asp-action="Register" method="post">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="Nombres" class="form-label">Nombres</label>
+                    <input asp-for="Nombres" class="form-control" placeholder="Ingresa tus nombres" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="Apellidos" class="form-label">Apellidos</label>
+                    <input asp-for="Apellidos" class="form-control" placeholder="Ingresa tus apellidos" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="Username" class="form-label">Nombre de Usuario</label>
+                <input asp-for="Username" class="form-control" placeholder="Ingresa tu nombre de usuario" />
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Correo Electrónico</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Ingresa tu email" />
+            </div>
+            <div class="mb-3">
+                <label for="Password" class="form-label">Contraseña</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Ingresa tu contraseña" />
+            </div>
+            <div class="mb-3">
+                <label for="UserType" class="form-label">Tipo de Usuario</label>
+                <select asp-for="UserType" class="form-select">
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuario</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-user-plus"></i> Registrarse
+            </button>
+        </form>
+    </div>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
